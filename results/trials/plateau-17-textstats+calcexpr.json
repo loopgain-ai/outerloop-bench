@@ -1,0 +1,71 @@
+{
+ "id": "plateau-17-textstats+calcexpr",
+ "cell": "plateau",
+ "family": "textstats",
+ "hard": "calcexpr",
+ "seed": 2017,
+ "max_turns": 8,
+ "bugs_applied": [
+  4,
+  5,
+  7,
+  8
+ ],
+ "total_tests": 51,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 15,
+   "passed": 36,
+   "sha": "711e603",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 12,
+   "passed": 39,
+   "sha": "e4107f4",
+   "cost_usd": 0.09280255000000001,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 62.0,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 0,
+   "passed": 51,
+   "sha": "02010c3",
+   "cost_usd": 0.07042585000000001,
+   "turns": 8,
+   "subtype": "success",
+   "wall_s": 40.3,
+   "ok": true
+  }
+ ],
+ "errors": [
+  15,
+  12,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "02010c3",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.1632,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

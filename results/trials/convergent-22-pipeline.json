@@ -1,0 +1,87 @@
+{
+ "id": "convergent-22-pipeline",
+ "cell": "convergent",
+ "family": "pipeline",
+ "hard": null,
+ "seed": 1022,
+ "max_turns": 10,
+ "bugs_applied": [
+  1,
+  5,
+  6,
+  9,
+  10,
+  11,
+  12
+ ],
+ "total_tests": 49,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 14,
+   "passed": 35,
+   "sha": "6e422f2",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 6,
+   "passed": 43,
+   "sha": "74028a3",
+   "cost_usd": 0.0856263,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 46.3,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 1,
+   "passed": 48,
+   "sha": "1d08ed5",
+   "cost_usd": 0.08466805000000001,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 33.8,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 0,
+   "passed": 49,
+   "sha": "576200b",
+   "cost_usd": 0.07344674999999999,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 31.6,
+   "ok": true
+  }
+ ],
+ "errors": [
+  14,
+  6,
+  1,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "FAST_CONVERGE",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 3,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "576200b",
+  "iterations_used": 4,
+  "savings_vs_fixed_cap": 6
+ },
+ "cost_usd": 0.2437,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

@@ -1,0 +1,87 @@
+{
+ "id": "gpt-plateau-00-orders+recur",
+ "cell": "plateau",
+ "family": "orders",
+ "hard": "recur",
+ "seed": 2000,
+ "max_turns": 8,
+ "bugs_applied": [
+  0,
+  1,
+  2,
+  6,
+  7
+ ],
+ "worker": "openai",
+ "worker_model": "gpt-5-mini",
+ "total_tests": 40,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 13,
+   "passed": 27,
+   "sha": "fa03472",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 13,
+   "passed": 27,
+   "sha": "53223b3",
+   "cost_usd": 0.002985,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 13.6,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 3,
+   "passed": 37,
+   "sha": "0de2928",
+   "cost_usd": 0.011133,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 57.1,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 0,
+   "passed": 40,
+   "sha": "400b381",
+   "cost_usd": 0.006088,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 30.2,
+   "ok": true
+  }
+ ],
+ "errors": [
+  13,
+  13,
+  3,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "CONVERGING",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 3,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "400b381",
+  "iterations_used": 4,
+  "savings_vs_fixed_cap": 6
+ },
+ "cost_usd": 0.0202,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

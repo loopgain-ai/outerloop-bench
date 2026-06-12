@@ -1,0 +1,21 @@
+{
+  "cohort": "cliraw (raw-API MAIN study, 90 loops)",
+  "n": 90,
+  "cost_model": "mean per-session cost x session-count; baselines bare-cap-10 / until-green / governed(K)",
+  "rows": {
+    "2": {
+      "vs_bare_pct": 78.3,
+      "vs_until_green_pct": 19.4,
+      "sum_bare_usd": 24.2142,
+      "sum_until_green_usd": 6.5025,
+      "sum_governed_usd": 5.2435
+    },
+    "5": {
+      "vs_bare_pct": 75.4,
+      "vs_until_green_pct": 8.5,
+      "sum_bare_usd": 24.2142,
+      "sum_until_green_usd": 6.5025,
+      "sum_governed_usd": 5.9508
+    }
+  }
+}

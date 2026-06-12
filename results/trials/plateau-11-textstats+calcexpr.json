@@ -1,0 +1,170 @@
+{
+ "id": "plateau-11-textstats+calcexpr",
+ "cell": "plateau",
+ "family": "textstats",
+ "hard": "calcexpr",
+ "seed": 2011,
+ "max_turns": 8,
+ "bugs_applied": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  8
+ ],
+ "total_tests": 51,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 15,
+   "passed": 36,
+   "sha": "8035e7a",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 13,
+   "passed": 38,
+   "sha": "30e181f",
+   "cost_usd": 0.07137125,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 32.1,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 10,
+   "passed": 41,
+   "sha": "0a19dc9",
+   "cost_usd": 0.07524090000000001,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 31.8,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 12,
+   "passed": 39,
+   "sha": "fd488b9",
+   "cost_usd": 0.09270170000000001,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 50.1,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 12,
+   "passed": 39,
+   "sha": "d70d364",
+   "cost_usd": 0,
+   "turns": 1,
+   "subtype": "success",
+   "wall_s": 3.3,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 12,
+   "passed": 39,
+   "sha": "a4dffab",
+   "cost_usd": 0,
+   "turns": 1,
+   "subtype": "success",
+   "wall_s": 2.8,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 12,
+   "passed": 39,
+   "sha": "d961e66",
+   "cost_usd": 0,
+   "turns": 1,
+   "subtype": "success",
+   "wall_s": 4.2,
+   "ok": true
+  },
+  {
+   "iter": 7,
+   "error": 12,
+   "passed": 39,
+   "sha": "f41732b",
+   "cost_usd": 0,
+   "turns": 1,
+   "subtype": "success",
+   "wall_s": 4.6,
+   "ok": true
+  },
+  {
+   "iter": 8,
+   "error": 12,
+   "passed": 39,
+   "sha": "c8b4e61",
+   "cost_usd": 0,
+   "turns": 1,
+   "subtype": "success",
+   "wall_s": 3.3,
+   "ok": true
+  },
+  {
+   "iter": 9,
+   "error": 12,
+   "passed": 39,
+   "sha": "d997064",
+   "cost_usd": 0,
+   "turns": 1,
+   "subtype": "success",
+   "wall_s": 3.6,
+   "ok": true
+  },
+  {
+   "iter": 10,
+   "error": 12,
+   "passed": 39,
+   "sha": "3a0aeaf",
+   "cost_usd": 0,
+   "turns": 1,
+   "subtype": "success",
+   "wall_s": 3.5,
+   "ok": true
+  }
+ ],
+ "errors": [
+  15,
+  13,
+  10,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 3,
+  "outcome": "stalled",
+  "best_error": 10.0,
+  "best_output": "0a19dc9",
+  "iterations_used": 4,
+  "savings_vs_fixed_cap": 6
+ },
+ "cost_usd": 0.2393,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

@@ -1,0 +1,73 @@
+{
+  "date": "2026-06-11",
+  "smoke": false,
+  "n_trials": 18,
+  "aborted": [],
+  "total_cost_usd": 0.3,
+  "cells": {
+    "convergent": {
+      "n": 6,
+      "outcomes": {
+        "converged": 6
+      },
+      "coherence_violations": 0,
+      "false_stops": [],
+      "stall_catches": 0,
+      "sessions_saved_on_stalls": 0,
+      "converged_clean": 6,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 0.06,
+      "cost_after_stop_usd": 0,
+      "telemetry_ok": 6
+    },
+    "plateau": {
+      "n": 6,
+      "outcomes": {
+        "stalled": 2,
+        "converged": 4
+      },
+      "coherence_violations": 0,
+      "false_stops": [
+        {
+          "id": "gpt-plateau-02-orders+recur",
+          "stop_err": 16,
+          "later_best": 0
+        },
+        {
+          "id": "gpt-plateau-04-orders+recur",
+          "stop_err": 15,
+          "later_best": 0
+        }
+      ],
+      "stall_catches": 2,
+      "sessions_saved_on_stalls": 16,
+      "converged_clean": 4,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 0.15,
+      "cost_after_stop_usd": 0.05,
+      "telemetry_ok": 6
+    },
+    "regression": {
+      "n": 6,
+      "outcomes": {
+        "stalled": 2,
+        "converged": 4
+      },
+      "coherence_violations": 0,
+      "false_stops": [
+        {
+          "id": "gpt-regression-02-pipeline",
+          "stop_err": 14,
+          "later_best": 0
+        }
+      ],
+      "stall_catches": 2,
+      "sessions_saved_on_stalls": 16,
+      "converged_clean": 4,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 0.09,
+      "cost_after_stop_usd": 0.04,
+      "telemetry_ok": 6
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+ "id": "plateau-22-orders+recur",
+ "cell": "plateau",
+ "family": "orders",
+ "hard": "recur",
+ "seed": 2022,
+ "max_turns": 8,
+ "bugs_applied": [
+  0,
+  2,
+  4,
+  6,
+  7,
+  8
+ ],
+ "total_tests": 40,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 16,
+   "passed": 24,
+   "sha": "2276f8a",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 16,
+   "passed": 24,
+   "sha": "7fd9c97",
+   "cost_usd": 0.0700666,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 33.5,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 9,
+   "passed": 31,
+   "sha": "7171334",
+   "cost_usd": 0.08110405,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 40.7,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 9,
+   "passed": 31,
+   "sha": "c8132c5",
+   "cost_usd": 0.0725277,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 39.7,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 7,
+   "passed": 33,
+   "sha": "62152fa",
+   "cost_usd": 0.08178785,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 54.6,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 3,
+   "passed": 37,
+   "sha": "9710359",
+   "cost_usd": 0.0738803,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 49.6,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 0,
+   "passed": 40,
+   "sha": "95e2fd1",
+   "cost_usd": 0.07633799999999999,
+   "turns": 8,
+   "subtype": "success",
+   "wall_s": 45.0,
+   "ok": true
+  }
+ ],
+ "errors": [
+  16,
+  16,
+  9,
+  9,
+  7,
+  3,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "stalled",
+  "best_error": 9.0,
+  "best_output": "7171334",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.4557,
+ "cost_after_stop_usd": 0.3045,
+ "telemetry_sent": true
+}

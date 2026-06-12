@@ -1,0 +1,64 @@
+{
+ "id": "cliraw-convergent-26-orders",
+ "cell": "convergent",
+ "family": "orders",
+ "hard": null,
+ "seed": 1026,
+ "max_turns": 10,
+ "bugs_applied": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  7
+ ],
+ "matched": false,
+ "cliraw": true,
+ "worker": "claude-min",
+ "worker_model": "claude-haiku-4-5-20251001",
+ "total_tests": 27,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 8,
+   "passed": 19,
+   "sha": "77744ac",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 0,
+   "passed": 27,
+   "sha": "9ee2b8a",
+   "cost_usd": 0.027916,
+   "turns": 9,
+   "subtype": "success",
+   "wall_s": 23.2,
+   "ok": true
+  }
+ ],
+ "errors": [
+  8,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 1,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "9ee2b8a",
+  "iterations_used": 2,
+  "savings_vs_fixed_cap": 8
+ },
+ "cost_usd": 0.0279,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

@@ -1,0 +1,137 @@
+{
+ "id": "convergent-04-pipeline",
+ "cell": "convergent",
+ "family": "pipeline",
+ "hard": null,
+ "seed": 1004,
+ "max_turns": 10,
+ "bugs_applied": [
+  1,
+  2,
+  3,
+  6,
+  8,
+  9,
+  10,
+  11,
+  12
+ ],
+ "total_tests": 49,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 18,
+   "passed": 31,
+   "sha": "119f21d",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 16,
+   "passed": 33,
+   "sha": "346f539",
+   "cost_usd": 0.08382945,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 37.6,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 17,
+   "passed": 32,
+   "sha": "8c03035",
+   "cost_usd": 0.08400294999999999,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 42.3,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 12,
+   "passed": 37,
+   "sha": "ee2e043",
+   "cost_usd": 0.09237480000000002,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 45.2,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 8,
+   "passed": 41,
+   "sha": "3923dc6",
+   "cost_usd": 0.08901485,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 38.4,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 1,
+   "passed": 48,
+   "sha": "1af093b",
+   "cost_usd": 0.08235604999999999,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 36.2,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 1,
+   "passed": 48,
+   "sha": "2f80518",
+   "cost_usd": 0.07116275,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 32.9,
+   "ok": true
+  },
+  {
+   "iter": 7,
+   "error": 0,
+   "passed": 49,
+   "sha": "3043012",
+   "cost_usd": 0.07045490000000001,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 31.7,
+   "ok": true
+  }
+ ],
+ "errors": [
+  18,
+  16,
+  17,
+  12,
+  8,
+  1,
+  1,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 3,
+  "outcome": "stalled",
+  "best_error": 12.0,
+  "best_output": "ee2e043",
+  "iterations_used": 4,
+  "savings_vs_fixed_cap": 6
+ },
+ "cost_usd": 0.5732,
+ "cost_after_stop_usd": 0.313,
+ "telemetry_sent": true
+}

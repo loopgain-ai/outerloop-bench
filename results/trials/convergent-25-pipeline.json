@@ -1,0 +1,100 @@
+{
+ "id": "convergent-25-pipeline",
+ "cell": "convergent",
+ "family": "pipeline",
+ "hard": null,
+ "seed": 1025,
+ "max_turns": 10,
+ "bugs_applied": [
+  0,
+  3,
+  5,
+  7,
+  8,
+  10,
+  12
+ ],
+ "total_tests": 49,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 12,
+   "passed": 37,
+   "sha": "39049de",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 12,
+   "passed": 37,
+   "sha": "20582cd",
+   "cost_usd": 0.08336100000000002,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 36.2,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 4,
+   "passed": 45,
+   "sha": "bdc9f7a",
+   "cost_usd": 0.08600390000000001,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 45.8,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 1,
+   "passed": 48,
+   "sha": "fe17bf2",
+   "cost_usd": 0.0771467,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 35.2,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 0,
+   "passed": 49,
+   "sha": "c9d98fa",
+   "cost_usd": 0.08968884999999999,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 49.1,
+   "ok": true
+  }
+ ],
+ "errors": [
+  12,
+  12,
+  4,
+  1,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "CONVERGING",
+  "FAST_CONVERGE",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 4,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "c9d98fa",
+  "iterations_used": 5,
+  "savings_vs_fixed_cap": 5
+ },
+ "cost_usd": 0.3362,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

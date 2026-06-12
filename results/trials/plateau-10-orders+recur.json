@@ -1,0 +1,167 @@
+{
+ "id": "plateau-10-orders+recur",
+ "cell": "plateau",
+ "family": "orders",
+ "hard": "recur",
+ "seed": 2010,
+ "max_turns": 8,
+ "bugs_applied": [
+  1,
+  5,
+  7,
+  8
+ ],
+ "total_tests": 40,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 13,
+   "passed": 27,
+   "sha": "0cb63fe",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 13,
+   "passed": 27,
+   "sha": "1dfcde6",
+   "cost_usd": 0.0676086,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 29.8,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 13,
+   "passed": 27,
+   "sha": "d670169",
+   "cost_usd": 0.06838910000000001,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 27.7,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 9,
+   "passed": 31,
+   "sha": "25b1cb7",
+   "cost_usd": 0.08154545,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 38.9,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 7,
+   "passed": 33,
+   "sha": "f3a65d3",
+   "cost_usd": 0.06947400000000001,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 31.1,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 3,
+   "passed": 37,
+   "sha": "1441f94",
+   "cost_usd": 0.0707651,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 34.8,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 3,
+   "passed": 37,
+   "sha": "772f20a",
+   "cost_usd": 0.025194300000000003,
+   "turns": 2,
+   "subtype": "success",
+   "wall_s": 6.9,
+   "ok": true
+  },
+  {
+   "iter": 7,
+   "error": 3,
+   "passed": 37,
+   "sha": "8b4f75b",
+   "cost_usd": 0,
+   "turns": 1,
+   "subtype": "success",
+   "wall_s": 2.7,
+   "ok": true
+  },
+  {
+   "iter": 8,
+   "error": 3,
+   "passed": 37,
+   "sha": "1f7648c",
+   "cost_usd": 0.025354300000000003,
+   "turns": 2,
+   "subtype": "success",
+   "wall_s": 6.8,
+   "ok": true
+  },
+  {
+   "iter": 9,
+   "error": 3,
+   "passed": 37,
+   "sha": "cb37349",
+   "cost_usd": 0,
+   "turns": 1,
+   "subtype": "success",
+   "wall_s": 4.1,
+   "ok": true
+  },
+  {
+   "iter": 10,
+   "error": 3,
+   "passed": 37,
+   "sha": "be92135",
+   "cost_usd": 0,
+   "turns": 1,
+   "subtype": "success",
+   "wall_s": 2.5,
+   "ok": true
+  }
+ ],
+ "errors": [
+  13,
+  13,
+  13,
+  9,
+  7,
+  3,
+  3,
+  3,
+  3,
+  3,
+  3
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "stalled",
+  "best_error": 13.0,
+  "best_output": "0cb63fe",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.4083,
+ "cost_after_stop_usd": 0.2723,
+ "telemetry_sent": true
+}

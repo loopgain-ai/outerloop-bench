@@ -1,0 +1,132 @@
+{
+ "id": "plateau-24-orders+recur",
+ "cell": "plateau",
+ "family": "orders",
+ "hard": "recur",
+ "seed": 2024,
+ "max_turns": 8,
+ "bugs_applied": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "total_tests": 40,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 13,
+   "passed": 27,
+   "sha": "2d894de",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 13,
+   "passed": 27,
+   "sha": "aae208c",
+   "cost_usd": 0.06622545,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 34.2,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 13,
+   "passed": 27,
+   "sha": "787ea7e",
+   "cost_usd": 0.06766699999999999,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 34.1,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 13,
+   "passed": 27,
+   "sha": "bc9448d",
+   "cost_usd": 0.0677106,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 32.4,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 13,
+   "passed": 27,
+   "sha": "c074d50",
+   "cost_usd": 0.06672475,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 28.3,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 13,
+   "passed": 27,
+   "sha": "20f3290",
+   "cost_usd": 0.0663121,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 26.7,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 4,
+   "passed": 36,
+   "sha": "99959a9",
+   "cost_usd": 0.1301135,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 92.1,
+   "ok": true
+  },
+  {
+   "iter": 7,
+   "error": 0,
+   "passed": 40,
+   "sha": "faa4a0f",
+   "cost_usd": 0.0898635,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 51.2,
+   "ok": true
+  }
+ ],
+ "errors": [
+  13,
+  13,
+  13,
+  13,
+  13,
+  13,
+  4,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "stalled",
+  "best_error": 13.0,
+  "best_output": "2d894de",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.5546,
+ "cost_after_stop_usd": 0.4207,
+ "telemetry_sent": true
+}

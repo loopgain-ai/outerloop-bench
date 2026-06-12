@@ -1,0 +1,169 @@
+{
+ "id": "regression-06-pipeline",
+ "cell": "regression",
+ "family": "pipeline",
+ "hard": null,
+ "seed": 3006,
+ "max_turns": 6,
+ "bugs_applied": [
+  3,
+  4,
+  5,
+  8,
+  9,
+  12
+ ],
+ "total_tests": 49,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 15,
+   "passed": 34,
+   "sha": "db23882",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 15,
+   "passed": 34,
+   "sha": "b058a08",
+   "cost_usd": 0.055207299999999994,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 21.5,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 14,
+   "passed": 35,
+   "sha": "95fb063",
+   "cost_usd": 0.0643328,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 35.7,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 14,
+   "passed": 35,
+   "sha": "0ee3b0d",
+   "cost_usd": 0.055446249999999996,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 22.8,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 14,
+   "passed": 35,
+   "sha": "7e5d56f",
+   "cost_usd": 0.053785200000000005,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 25.6,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 14,
+   "passed": 35,
+   "sha": "750db37",
+   "cost_usd": 0.055756,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 21.9,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 14,
+   "passed": 35,
+   "sha": "4dd73b7",
+   "cost_usd": 0.05706819999999999,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 25.2,
+   "ok": true
+  },
+  {
+   "iter": 7,
+   "error": 14,
+   "passed": 35,
+   "sha": "ea7fa1f",
+   "cost_usd": 0.0526779,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 21.9,
+   "ok": true
+  },
+  {
+   "iter": 8,
+   "error": 1,
+   "passed": 48,
+   "sha": "95b06e3",
+   "cost_usd": 0.0654185,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 31.5,
+   "ok": true
+  },
+  {
+   "iter": 9,
+   "error": 1,
+   "passed": 48,
+   "sha": "97d30e7",
+   "cost_usd": 0.053386699999999995,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 21.2,
+   "ok": true
+  },
+  {
+   "iter": 10,
+   "error": 1,
+   "passed": 48,
+   "sha": "46bf702",
+   "cost_usd": 0.054306200000000006,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 20.0,
+   "ok": true
+  }
+ ],
+ "errors": [
+  15,
+  15,
+  14,
+  14,
+  14,
+  14,
+  14,
+  14,
+  1,
+  1,
+  1
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "stalled",
+  "best_error": 14.0,
+  "best_output": "95fb063",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.5674,
+ "cost_after_stop_usd": 0.4478,
+ "telemetry_sent": true
+}

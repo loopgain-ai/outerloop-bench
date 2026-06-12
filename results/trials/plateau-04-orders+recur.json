@@ -1,0 +1,133 @@
+{
+ "id": "plateau-04-orders+recur",
+ "cell": "plateau",
+ "family": "orders",
+ "hard": "recur",
+ "seed": 2004,
+ "max_turns": 8,
+ "bugs_applied": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  8
+ ],
+ "total_tests": 40,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 15,
+   "passed": 25,
+   "sha": "d06ea52",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 15,
+   "passed": 25,
+   "sha": "44b652e",
+   "cost_usd": 0.069289,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 24.6,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 15,
+   "passed": 25,
+   "sha": "fdc5602",
+   "cost_usd": 0.06872685,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 28.2,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 14,
+   "passed": 26,
+   "sha": "367f3f6",
+   "cost_usd": 0.07087014999999999,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 32.2,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 14,
+   "passed": 26,
+   "sha": "26e1e54",
+   "cost_usd": 0.07025175,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 27.6,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 14,
+   "passed": 26,
+   "sha": "62663ca",
+   "cost_usd": 0.06806195,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 26.3,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 14,
+   "passed": 26,
+   "sha": "62f0056",
+   "cost_usd": 0.06917530000000001,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 25.8,
+   "ok": true
+  },
+  {
+   "iter": 7,
+   "error": 0,
+   "passed": 40,
+   "sha": "ac2af40",
+   "cost_usd": 0.140668,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 105.8,
+   "ok": true
+  }
+ ],
+ "errors": [
+  15,
+  15,
+  15,
+  14,
+  14,
+  14,
+  14,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "stalled",
+  "best_error": 15.0,
+  "best_output": "d06ea52",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.557,
+ "cost_after_stop_usd": 0.419,
+ "telemetry_sent": true
+}

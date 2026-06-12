@@ -1,0 +1,256 @@
+{
+  "date": "2026-06-11",
+  "design": "matched harness: both workers via minimal single-inference-per-turn driver, identical budgets (convergent=10, plateau=8, regression=6), n=6/cell",
+  "verdict": {
+    "question": "Under identical drivers, is the orientation-starvation floor at 6 single-inference turns a driver property or a model property?",
+    "answer": "DRIVER ARTIFACT. The starvation finding does not replicate under the matched harness: at max_turns=6 both models reach a file edit on every first (fresh-repo) session \u2014 iter-1 edit rate 6/6 for both. Zero-edit sessions occur only on LATE iterations after progress plateaus, at near-identical rates for both models (regression cell: 69.4% haiku vs 69.2% gpt-5-mini). The original 'model-dependent starvation floor' claim was driver asymmetry (claude CLI turn != one raw-API inference). Do NOT tell users different models need different turn budgets.",
+    "residual_model_differences": "Capability, not budget: at identical budgets haiku converged 14/18 trials vs gpt-5-mini 10/18, and on plateau (hard-module) trials haiku keeps attempting edits in late sessions (15/16 sessions edited) while gpt-5-mini stops editing (11/34). These are model properties of persistence/throughput, not turn-budget floors."
+  },
+  "cohorts": {
+    "cmin": {
+      "label": "claude-haiku-4-5-20251001 (minimal driver)",
+      "n_trials": 18,
+      "cells": {
+        "convergent": {
+          "n": 6,
+          "max_turns": 10,
+          "outcomes": {
+            "converged": 6
+          },
+          "coherence_violations": 0,
+          "false_stops": [],
+          "stall_catches": 0,
+          "sessions_saved_on_stalls": 0,
+          "ended_worse_than_best": 0,
+          "sessions": {
+            "total": 6,
+            "hit_max_turns": 2,
+            "zero_edit": 0,
+            "edit_unknown": 0,
+            "zero_edit_rate": 0.0,
+            "mean_turns": 8.67,
+            "iter1_edit_rate": "6/6",
+            "edit_rate_by_iteration": {
+              "1": "6/6"
+            }
+          },
+          "trials_never_edited": 0,
+          "trials_never_reduced_error": 0,
+          "total_cost_usd": 0.1862,
+          "aborted_ids": []
+        },
+        "plateau": {
+          "n": 6,
+          "max_turns": 8,
+          "outcomes": {
+            "converged": 5,
+            "stalled": 1
+          },
+          "coherence_violations": 0,
+          "false_stops": [
+            {
+              "id": "cmin-plateau-00-orders+recur",
+              "stop_err": 7,
+              "later_best": 0
+            }
+          ],
+          "stall_catches": 1,
+          "sessions_saved_on_stalls": 7,
+          "ended_worse_than_best": 0,
+          "sessions": {
+            "total": 16,
+            "hit_max_turns": 16,
+            "zero_edit": 1,
+            "edit_unknown": 0,
+            "zero_edit_rate": 0.062,
+            "mean_turns": 8.0,
+            "iter1_edit_rate": "6/6",
+            "edit_rate_by_iteration": {
+              "1": "6/6",
+              "2": "2/3",
+              "3": "3/3",
+              "4": "2/2",
+              "5": "2/2"
+            }
+          },
+          "trials_never_edited": 0,
+          "trials_never_reduced_error": 0,
+          "total_cost_usd": 0.4743,
+          "aborted_ids": []
+        },
+        "regression": {
+          "n": 6,
+          "max_turns": 6,
+          "outcomes": {
+            "converged": 3,
+            "stalled": 3
+          },
+          "coherence_violations": 0,
+          "false_stops": [
+            {
+              "id": "cmin-regression-04-pipeline",
+              "stop_err": 20,
+              "later_best": 13
+            }
+          ],
+          "stall_catches": 3,
+          "sessions_saved_on_stalls": 16,
+          "ended_worse_than_best": 0,
+          "sessions": {
+            "total": 36,
+            "hit_max_turns": 35,
+            "zero_edit": 25,
+            "edit_unknown": 0,
+            "zero_edit_rate": 0.694,
+            "mean_turns": 6.0,
+            "iter1_edit_rate": "6/6",
+            "edit_rate_by_iteration": {
+              "1": "6/6",
+              "2": "3/6",
+              "3": "1/3",
+              "4": "0/3",
+              "5": "0/3",
+              "6": "0/3",
+              "7": "0/3",
+              "8": "0/3",
+              "9": "1/3",
+              "10": "0/3"
+            }
+          },
+          "trials_never_edited": 0,
+          "trials_never_reduced_error": 0,
+          "total_cost_usd": 0.6032,
+          "aborted_ids": []
+        }
+      }
+    },
+    "gptm": {
+      "label": "gpt-5-mini (minimal driver)",
+      "n_trials": 18,
+      "cells": {
+        "convergent": {
+          "n": 6,
+          "max_turns": 10,
+          "outcomes": {
+            "converged": 6
+          },
+          "coherence_violations": 0,
+          "false_stops": [],
+          "stall_catches": 0,
+          "sessions_saved_on_stalls": 0,
+          "ended_worse_than_best": 0,
+          "sessions": {
+            "total": 8,
+            "hit_max_turns": 4,
+            "zero_edit": 0,
+            "edit_unknown": 0,
+            "zero_edit_rate": 0.0,
+            "mean_turns": 9.75,
+            "iter1_edit_rate": "6/6",
+            "edit_rate_by_iteration": {
+              "1": "6/6",
+              "2": "2/2"
+            }
+          },
+          "trials_never_edited": 0,
+          "trials_never_reduced_error": 0,
+          "total_cost_usd": 0.063,
+          "aborted_ids": []
+        },
+        "plateau": {
+          "n": 6,
+          "max_turns": 8,
+          "outcomes": {
+            "converged": 3,
+            "stalled": 3
+          },
+          "coherence_violations": 0,
+          "false_stops": [
+            {
+              "id": "gptm-plateau-02-orders+recur",
+              "stop_err": 16,
+              "later_best": 0
+            }
+          ],
+          "stall_catches": 3,
+          "sessions_saved_on_stalls": 24,
+          "ended_worse_than_best": 0,
+          "sessions": {
+            "total": 34,
+            "hit_max_turns": 33,
+            "zero_edit": 23,
+            "edit_unknown": 0,
+            "zero_edit_rate": 0.676,
+            "mean_turns": 8.0,
+            "iter1_edit_rate": "6/6",
+            "edit_rate_by_iteration": {
+              "1": "6/6",
+              "2": "3/5",
+              "3": "0/3",
+              "4": "0/3",
+              "5": "0/3",
+              "6": "0/3",
+              "7": "0/3",
+              "8": "1/3",
+              "9": "1/3",
+              "10": "0/2"
+            }
+          },
+          "trials_never_edited": 0,
+          "trials_never_reduced_error": 2,
+          "total_cost_usd": 0.1724,
+          "aborted_ids": []
+        },
+        "regression": {
+          "n": 6,
+          "max_turns": 6,
+          "outcomes": {
+            "converged": 1,
+            "stalled": 5
+          },
+          "coherence_violations": 0,
+          "false_stops": [
+            {
+              "id": "gptm-regression-01-orders",
+              "stop_err": 8,
+              "later_best": 0
+            },
+            {
+              "id": "gptm-regression-03-orders",
+              "stop_err": 8,
+              "later_best": 0
+            }
+          ],
+          "stall_catches": 5,
+          "sessions_saved_on_stalls": 40,
+          "ended_worse_than_best": 0,
+          "sessions": {
+            "total": 39,
+            "hit_max_turns": 39,
+            "zero_edit": 27,
+            "edit_unknown": 0,
+            "zero_edit_rate": 0.692,
+            "mean_turns": 6.0,
+            "iter1_edit_rate": "6/6",
+            "edit_rate_by_iteration": {
+              "1": "6/6",
+              "2": "3/6",
+              "3": "1/5",
+              "4": "2/4",
+              "5": "0/3",
+              "6": "0/3",
+              "7": "0/3",
+              "8": "0/3",
+              "9": "0/3",
+              "10": "0/3"
+            }
+          },
+          "trials_never_edited": 0,
+          "trials_never_reduced_error": 3,
+          "total_cost_usd": 0.0854,
+          "aborted_ids": []
+        }
+      }
+    }
+  }
+}

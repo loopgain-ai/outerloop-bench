@@ -1,0 +1,345 @@
+{
+  "date": "2026-06-11",
+  "design": "driver swap on identical seeds/budgets: claude-cli main study (claude -p, many inferences/turn) vs raw-API re-run (claude_min_worker, one inference/turn). Only the worker changes. Recompute path = analyze_all (non-terminating bands + shipped K=2 stall kill).",
+  "n": {
+    "claude_cli": 89,
+    "rawapi": 90
+  },
+  "cells": {
+    "convergent": {
+      "claude_cli": {
+        "n": 30,
+        "max_turns": 10,
+        "outcomes": {
+          "converged": 29,
+          "stalled": 1
+        },
+        "coherence_violations": 0,
+        "false_stops": 1,
+        "fs_recoverable": 1,
+        "fs_ids": [
+          "convergent-04-pipeline"
+        ],
+        "true_catches": 0,
+        "sessions_saved_on_catches": 0,
+        "converged_clean": 29,
+        "ended_worse_than_best": 0,
+        "baseline_cost_usd": 6.51,
+        "governed_cost_usd": 6.2,
+        "saved_usd": 0.31,
+        "cost_usd": 6.51,
+        "saved_pct": 4.8
+      },
+      "rawapi": {
+        "n": 30,
+        "max_turns": 10,
+        "outcomes": {
+          "converged": 30
+        },
+        "coherence_violations": 0,
+        "false_stops": 0,
+        "fs_recoverable": 0,
+        "fs_ids": [],
+        "true_catches": 0,
+        "sessions_saved_on_catches": 0,
+        "converged_clean": 30,
+        "ended_worse_than_best": 0,
+        "baseline_cost_usd": 1.13,
+        "governed_cost_usd": 1.13,
+        "saved_usd": 0.0,
+        "cost_usd": 1.13,
+        "saved_pct": 0.0
+      }
+    },
+    "plateau": {
+      "claude_cli": {
+        "n": 29,
+        "max_turns": 8,
+        "outcomes": {
+          "stalled": 12,
+          "converged": 15,
+          "diverging": 2
+        },
+        "coherence_violations": 0,
+        "false_stops": 11,
+        "fs_recoverable": 8,
+        "fs_ids": [
+          "plateau-00-orders+recur",
+          "plateau-02-orders+recur",
+          "plateau-04-orders+recur",
+          "plateau-05-textstats+calcexpr",
+          "plateau-06-orders+recur",
+          "plateau-10-orders+recur",
+          "plateau-13-textstats+calcexpr",
+          "plateau-18-orders+recur",
+          "plateau-22-orders+recur",
+          "plateau-24-orders+recur",
+          "plateau-28-orders+recur"
+        ],
+        "true_catches": 6,
+        "sessions_saved_on_catches": 42,
+        "converged_clean": 15,
+        "ended_worse_than_best": 1,
+        "baseline_cost_usd": 9.71,
+        "governed_cost_usd": 5.3,
+        "saved_usd": 4.4,
+        "cost_usd": 9.71,
+        "saved_pct": 45.3
+      },
+      "rawapi": {
+        "n": 30,
+        "max_turns": 8,
+        "outcomes": {
+          "converged": 29,
+          "stalled": 1
+        },
+        "coherence_violations": 0,
+        "false_stops": 1,
+        "fs_recoverable": 1,
+        "fs_ids": [
+          "cliraw-plateau-22-orders+recur"
+        ],
+        "true_catches": 0,
+        "sessions_saved_on_catches": 0,
+        "converged_clean": 29,
+        "ended_worse_than_best": 0,
+        "baseline_cost_usd": 2.73,
+        "governed_cost_usd": 2.61,
+        "saved_usd": 0.12,
+        "cost_usd": 2.73,
+        "saved_pct": 4.4
+      }
+    },
+    "regression": {
+      "claude_cli": {
+        "n": 30,
+        "max_turns": 6,
+        "outcomes": {
+          "stalled": 28,
+          "converged": 2
+        },
+        "coherence_violations": 0,
+        "false_stops": 24,
+        "fs_recoverable": 8,
+        "fs_ids": [
+          "regression-00-pipeline",
+          "regression-01-orders",
+          "regression-02-pipeline",
+          "regression-03-orders",
+          "regression-04-pipeline",
+          "regression-05-orders",
+          "regression-06-pipeline",
+          "regression-07-orders",
+          "regression-08-pipeline",
+          "regression-09-orders",
+          "regression-10-pipeline",
+          "regression-11-orders",
+          "regression-12-pipeline",
+          "regression-13-orders",
+          "regression-14-pipeline",
+          "regression-16-pipeline",
+          "regression-17-orders",
+          "regression-21-orders",
+          "regression-22-pipeline",
+          "regression-23-orders",
+          "regression-24-pipeline",
+          "regression-25-orders",
+          "regression-26-pipeline",
+          "regression-28-pipeline"
+        ],
+        "true_catches": 20,
+        "sessions_saved_on_catches": 156,
+        "converged_clean": 2,
+        "ended_worse_than_best": 0,
+        "baseline_cost_usd": 15.23,
+        "governed_cost_usd": 4.1,
+        "saved_usd": 11.13,
+        "cost_usd": 15.23,
+        "saved_pct": 73.1
+      },
+      "rawapi": {
+        "n": 30,
+        "max_turns": 6,
+        "outcomes": {
+          "stalled": 14,
+          "converged": 16
+        },
+        "coherence_violations": 0,
+        "false_stops": 13,
+        "fs_recoverable": 9,
+        "fs_ids": [
+          "cliraw-regression-00-pipeline",
+          "cliraw-regression-02-pipeline",
+          "cliraw-regression-04-pipeline",
+          "cliraw-regression-05-orders",
+          "cliraw-regression-08-pipeline",
+          "cliraw-regression-12-pipeline",
+          "cliraw-regression-14-pipeline",
+          "cliraw-regression-15-orders",
+          "cliraw-regression-16-pipeline",
+          "cliraw-regression-20-pipeline",
+          "cliraw-regression-22-pipeline",
+          "cliraw-regression-26-pipeline",
+          "cliraw-regression-28-pipeline"
+        ],
+        "true_catches": 5,
+        "sessions_saved_on_catches": 37,
+        "converged_clean": 16,
+        "ended_worse_than_best": 0,
+        "baseline_cost_usd": 2.64,
+        "governed_cost_usd": 1.49,
+        "saved_usd": 1.14,
+        "cost_usd": 2.64,
+        "saved_pct": 43.2
+      }
+    }
+  },
+  "k_sweep": {
+    "claude_cli": [
+      {
+        "k": 2,
+        "false_stops": 36,
+        "fs_recoverable": 17,
+        "true_catches": 26,
+        "sessions_saved": 198,
+        "burn_avoided_usd": 10.98
+      },
+      {
+        "k": 3,
+        "false_stops": 35,
+        "fs_recoverable": 17,
+        "true_catches": 26,
+        "sessions_saved": 172,
+        "burn_avoided_usd": 9.56
+      },
+      {
+        "k": 4,
+        "false_stops": 31,
+        "fs_recoverable": 16,
+        "true_catches": 26,
+        "sessions_saved": 146,
+        "burn_avoided_usd": 8.13
+      },
+      {
+        "k": 5,
+        "false_stops": 25,
+        "fs_recoverable": 13,
+        "true_catches": 26,
+        "sessions_saved": 120,
+        "burn_avoided_usd": 6.71
+      }
+    ],
+    "rawapi": [
+      {
+        "k": 2,
+        "false_stops": 14,
+        "fs_recoverable": 10,
+        "true_catches": 5,
+        "sessions_saved": 37,
+        "burn_avoided_usd": 0.63
+      },
+      {
+        "k": 3,
+        "false_stops": 11,
+        "fs_recoverable": 7,
+        "true_catches": 5,
+        "sessions_saved": 32,
+        "burn_avoided_usd": 0.54
+      },
+      {
+        "k": 4,
+        "false_stops": 10,
+        "fs_recoverable": 6,
+        "true_catches": 5,
+        "sessions_saved": 27,
+        "burn_avoided_usd": 0.46
+      },
+      {
+        "k": 5,
+        "false_stops": 7,
+        "fs_recoverable": 4,
+        "true_catches": 5,
+        "sessions_saved": 22,
+        "burn_avoided_usd": 0.38
+      }
+    ]
+  },
+  "burstiness": {
+    "convergent": {
+      "claude_cli": {
+        "sessions": 81,
+        "moved": 79,
+        "moved_down": 76,
+        "flat": 2,
+        "frac_moved": 0.975,
+        "frac_flat": 0.025,
+        "mean_turns": 10.4,
+        "hit_max_turns": 61
+      },
+      "rawapi": {
+        "sessions": 38,
+        "moved": 36,
+        "moved_down": 36,
+        "flat": 2,
+        "frac_moved": 0.947,
+        "frac_flat": 0.053,
+        "mean_turns": 9.16,
+        "hit_max_turns": 17
+      }
+    },
+    "plateau": {
+      "claude_cli": {
+        "sessions": 148,
+        "moved": 78,
+        "moved_down": 74,
+        "flat": 70,
+        "frac_moved": 0.527,
+        "frac_flat": 0.473,
+        "mean_turns": 7.73,
+        "hit_max_turns": 116
+      },
+      "rawapi": {
+        "sessions": 91,
+        "moved": 79,
+        "moved_down": 77,
+        "flat": 12,
+        "frac_moved": 0.868,
+        "frac_flat": 0.132,
+        "mean_turns": 7.92,
+        "hit_max_turns": 86
+      }
+    },
+    "regression": {
+      "claude_cli": {
+        "sessions": 267,
+        "moved": 77,
+        "moved_down": 76,
+        "flat": 190,
+        "frac_moved": 0.288,
+        "frac_flat": 0.712,
+        "mean_turns": 6.98,
+        "hit_max_turns": 262
+      },
+      "rawapi": {
+        "sessions": 142,
+        "moved": 66,
+        "moved_down": 65,
+        "flat": 76,
+        "frac_moved": 0.465,
+        "frac_flat": 0.535,
+        "mean_turns": 6.0,
+        "hit_max_turns": 142
+      }
+    }
+  },
+  "key_question_regression_false_stops": {
+    "claude_cli": "24/30",
+    "rawapi": "13/30",
+    "claude_cli_true_catches": 20,
+    "rawapi_true_catches": 5
+  },
+  "coherence_violations_total": {
+    "claude_cli": 0,
+    "rawapi": 0
+  }
+}

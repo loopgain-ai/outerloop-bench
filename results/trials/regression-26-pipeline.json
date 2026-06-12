@@ -1,0 +1,146 @@
+{
+ "id": "regression-26-pipeline",
+ "cell": "regression",
+ "family": "pipeline",
+ "hard": null,
+ "seed": 3026,
+ "max_turns": 6,
+ "bugs_applied": [
+  0,
+  1,
+  2,
+  3,
+  5,
+  6,
+  10
+ ],
+ "total_tests": 49,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 13,
+   "passed": 36,
+   "sha": "9bdb1bd",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 13,
+   "passed": 36,
+   "sha": "e26d542",
+   "cost_usd": 0.058672400000000006,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 23.5,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 13,
+   "passed": 36,
+   "sha": "b1ecf93",
+   "cost_usd": 0.0562556,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 18.7,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 7,
+   "passed": 42,
+   "sha": "030a892",
+   "cost_usd": 0.06958950000000001,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 30.9,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 5,
+   "passed": 44,
+   "sha": "68996a2",
+   "cost_usd": 0.0628672,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 35.1,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 5,
+   "passed": 44,
+   "sha": "ad63ef0",
+   "cost_usd": 0.053741899999999995,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 21.2,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 3,
+   "passed": 46,
+   "sha": "1ed431d",
+   "cost_usd": 0.058156650000000004,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 29.4,
+   "ok": true
+  },
+  {
+   "iter": 7,
+   "error": 1,
+   "passed": 48,
+   "sha": "0a42e5b",
+   "cost_usd": 0.05363875,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 24.4,
+   "ok": true
+  },
+  {
+   "iter": 8,
+   "error": 0,
+   "passed": 49,
+   "sha": "c49ad14",
+   "cost_usd": 0.045228449999999996,
+   "turns": 5,
+   "subtype": "success",
+   "wall_s": 18.0,
+   "ok": true
+  }
+ ],
+ "errors": [
+  13,
+  13,
+  13,
+  7,
+  5,
+  5,
+  3,
+  1,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "stalled",
+  "best_error": 13.0,
+  "best_output": "9bdb1bd",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.4582,
+ "cost_after_stop_usd": 0.3432,
+ "telemetry_sent": true
+}

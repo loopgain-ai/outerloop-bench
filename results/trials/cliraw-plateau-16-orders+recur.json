@@ -1,0 +1,129 @@
+{
+ "id": "cliraw-plateau-16-orders+recur",
+ "cell": "plateau",
+ "family": "orders",
+ "hard": "recur",
+ "seed": 2016,
+ "max_turns": 8,
+ "bugs_applied": [
+  0,
+  2,
+  4,
+  5,
+  6,
+  7
+ ],
+ "matched": false,
+ "cliraw": true,
+ "worker": "claude-min",
+ "worker_model": "claude-haiku-4-5-20251001",
+ "total_tests": 40,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 15,
+   "passed": 25,
+   "sha": "e832fea",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 13,
+   "passed": 27,
+   "sha": "292daef",
+   "cost_usd": 0.021253,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 14.9,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 13,
+   "passed": 27,
+   "sha": "e468979",
+   "cost_usd": 0.022975,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 13.3,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 3,
+   "passed": 37,
+   "sha": "eccd166",
+   "cost_usd": 0.036707,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 34.3,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 2,
+   "passed": 38,
+   "sha": "e632e80",
+   "cost_usd": 0.033774,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 26.8,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 3,
+   "passed": 37,
+   "sha": "08f282a",
+   "cost_usd": 0.040817,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 35.4,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 0,
+   "passed": 40,
+   "sha": "06162ad",
+   "cost_usd": 0.044849,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 38.8,
+   "ok": true
+  }
+ ],
+ "errors": [
+  15,
+  13,
+  13,
+  3,
+  2,
+  3,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "STALLING",
+  "CONVERGING",
+  "CONVERGING",
+  "CONVERGING",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 6,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "06162ad",
+  "iterations_used": 7,
+  "savings_vs_fixed_cap": 3
+ },
+ "cost_usd": 0.2004,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

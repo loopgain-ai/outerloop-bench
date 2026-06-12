@@ -1,0 +1,68 @@
+{
+  "date": "2026-06-11",
+  "smoke": false,
+  "n_trials": 18,
+  "aborted": [],
+  "total_cost_usd": 1.26,
+  "cells": {
+    "convergent": {
+      "n": 6,
+      "outcomes": {
+        "converged": 6
+      },
+      "coherence_violations": 0,
+      "false_stops": [],
+      "stall_catches": 0,
+      "sessions_saved_on_stalls": 0,
+      "converged_clean": 6,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 0.19,
+      "cost_after_stop_usd": 0,
+      "telemetry_ok": 0
+    },
+    "plateau": {
+      "n": 6,
+      "outcomes": {
+        "stalled": 1,
+        "converged": 5
+      },
+      "coherence_violations": 0,
+      "false_stops": [
+        {
+          "id": "cmin-plateau-00-orders+recur",
+          "stop_err": 7,
+          "later_best": 0
+        }
+      ],
+      "stall_catches": 1,
+      "sessions_saved_on_stalls": 7,
+      "converged_clean": 5,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 0.47,
+      "cost_after_stop_usd": 0.07,
+      "telemetry_ok": 0
+    },
+    "regression": {
+      "n": 6,
+      "outcomes": {
+        "stalled": 3,
+        "converged": 3
+      },
+      "coherence_violations": 0,
+      "false_stops": [
+        {
+          "id": "cmin-regression-04-pipeline",
+          "stop_err": 20,
+          "later_best": 13
+        }
+      ],
+      "stall_catches": 3,
+      "sessions_saved_on_stalls": 16,
+      "converged_clean": 3,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 0.6,
+      "cost_after_stop_usd": 0.26,
+      "telemetry_ok": 0
+    }
+  }
+}

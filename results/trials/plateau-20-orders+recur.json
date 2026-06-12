@@ -1,0 +1,73 @@
+{
+ "id": "plateau-20-orders+recur",
+ "cell": "plateau",
+ "family": "orders",
+ "hard": "recur",
+ "seed": 2020,
+ "max_turns": 8,
+ "bugs_applied": [
+  2,
+  3,
+  5,
+  6,
+  7,
+  8
+ ],
+ "total_tests": 40,
+ "cap": 10,
+ "aborted": "Command '['claude', '--model', 'claude-haiku-4-5-20251001', '-p', 'You are one iteration of an automated fix loop on this repo.\\nRun ./run_tests.sh to see which tests fail. Fix implementation bugs in ",
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 15,
+   "passed": 25,
+   "sha": "b5ba4e9",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 4,
+   "passed": 36,
+   "sha": "0d8e42d",
+   "cost_usd": 0.0905944,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 50.2,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 2,
+   "passed": 38,
+   "sha": "67ee45c",
+   "cost_usd": 0.08208415,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 44.3,
+   "ok": true
+  }
+ ],
+ "errors": [
+  15,
+  4,
+  2
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "CONVERGING"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "in_progress",
+  "best_error": 2.0,
+  "best_output": "67ee45c",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.1727,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": null
+}

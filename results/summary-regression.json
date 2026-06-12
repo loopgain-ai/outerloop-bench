@@ -1,0 +1,152 @@
+{
+  "date": "2026-06-11",
+  "smoke": false,
+  "n_trials": 30,
+  "aborted": [],
+  "total_cost_usd": 15.23,
+  "cells": {
+    "convergent": {
+      "n": 0
+    },
+    "plateau": {
+      "n": 0
+    },
+    "regression": {
+      "n": 30,
+      "outcomes": {
+        "stalled": 28,
+        "converged": 2
+      },
+      "coherence_violations": 0,
+      "false_stops": [
+        {
+          "id": "regression-00-pipeline",
+          "stop_err": 13,
+          "later_best": 9
+        },
+        {
+          "id": "regression-01-orders",
+          "stop_err": 11,
+          "later_best": 0
+        },
+        {
+          "id": "regression-02-pipeline",
+          "stop_err": 14,
+          "later_best": 8
+        },
+        {
+          "id": "regression-03-orders",
+          "stop_err": 12,
+          "later_best": 9
+        },
+        {
+          "id": "regression-04-pipeline",
+          "stop_err": 18,
+          "later_best": 14
+        },
+        {
+          "id": "regression-05-orders",
+          "stop_err": 6,
+          "later_best": 0
+        },
+        {
+          "id": "regression-06-pipeline",
+          "stop_err": 14,
+          "later_best": 1
+        },
+        {
+          "id": "regression-07-orders",
+          "stop_err": 10,
+          "later_best": 0
+        },
+        {
+          "id": "regression-08-pipeline",
+          "stop_err": 17,
+          "later_best": 0
+        },
+        {
+          "id": "regression-09-orders",
+          "stop_err": 9,
+          "later_best": 0
+        },
+        {
+          "id": "regression-10-pipeline",
+          "stop_err": 14,
+          "later_best": 4
+        },
+        {
+          "id": "regression-11-orders",
+          "stop_err": 9,
+          "later_best": 3
+        },
+        {
+          "id": "regression-12-pipeline",
+          "stop_err": 19,
+          "later_best": 17
+        },
+        {
+          "id": "regression-13-orders",
+          "stop_err": 12,
+          "later_best": 11
+        },
+        {
+          "id": "regression-14-pipeline",
+          "stop_err": 9,
+          "later_best": 0
+        },
+        {
+          "id": "regression-16-pipeline",
+          "stop_err": 13,
+          "later_best": 6
+        },
+        {
+          "id": "regression-17-orders",
+          "stop_err": 12,
+          "later_best": 9
+        },
+        {
+          "id": "regression-21-orders",
+          "stop_err": 6,
+          "later_best": 0
+        },
+        {
+          "id": "regression-22-pipeline",
+          "stop_err": 14,
+          "later_best": 10
+        },
+        {
+          "id": "regression-23-orders",
+          "stop_err": 12,
+          "later_best": 5
+        },
+        {
+          "id": "regression-24-pipeline",
+          "stop_err": 17,
+          "later_best": 13
+        },
+        {
+          "id": "regression-25-orders",
+          "stop_err": 8,
+          "later_best": 7
+        },
+        {
+          "id": "regression-26-pipeline",
+          "stop_err": 13,
+          "later_best": 0
+        },
+        {
+          "id": "regression-28-pipeline",
+          "stop_err": 17,
+          "later_best": 10
+        }
+      ],
+      "stall_catches": 28,
+      "sessions_saved_on_stalls": 217,
+      "converged_clean": 2,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 15.23,
+      "cost_after_stop_usd": 11.13,
+      "telemetry_ok": 30
+    }
+  }
+}

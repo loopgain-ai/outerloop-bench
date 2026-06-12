@@ -1,0 +1,86 @@
+{
+ "id": "plateau-29-textstats+calcexpr",
+ "cell": "plateau",
+ "family": "textstats",
+ "hard": "calcexpr",
+ "seed": 2029,
+ "max_turns": 8,
+ "bugs_applied": [
+  1,
+  2,
+  3,
+  5,
+  7,
+  9
+ ],
+ "total_tests": 51,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 16,
+   "passed": 35,
+   "sha": "0d1ed4d",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 9,
+   "passed": 42,
+   "sha": "1b170b3",
+   "cost_usd": 0.08431235,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 53.3,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 2,
+   "passed": 49,
+   "sha": "36b8a1c",
+   "cost_usd": 0.07191600000000001,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 32.9,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 0,
+   "passed": 51,
+   "sha": "db7e0a1",
+   "cost_usd": 0.0554858,
+   "turns": 6,
+   "subtype": "success",
+   "wall_s": 27.5,
+   "ok": true
+  }
+ ],
+ "errors": [
+  16,
+  9,
+  2,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "CONVERGING",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 3,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "db7e0a1",
+  "iterations_used": 4,
+  "savings_vs_fixed_cap": 6
+ },
+ "cost_usd": 0.2117,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

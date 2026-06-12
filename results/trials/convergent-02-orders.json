@@ -1,0 +1,76 @@
+{
+ "id": "convergent-02-orders",
+ "cell": "convergent",
+ "family": "orders",
+ "hard": null,
+ "seed": 1002,
+ "max_turns": 10,
+ "bugs_applied": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "total_tests": 27,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 12,
+   "passed": 15,
+   "sha": "0fc6a47",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 8,
+   "passed": 19,
+   "sha": "52d1938",
+   "cost_usd": 0.08255390000000001,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 33.3,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 0,
+   "passed": 27,
+   "sha": "7bc791d",
+   "cost_usd": 0.08388645,
+   "turns": 10,
+   "subtype": "success",
+   "wall_s": 43.4,
+   "ok": true
+  }
+ ],
+ "errors": [
+  12,
+  8,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "7bc791d",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.1664,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

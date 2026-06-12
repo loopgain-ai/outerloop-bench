@@ -1,0 +1,103 @@
+{
+ "id": "cliraw-plateau-04-orders+recur",
+ "cell": "plateau",
+ "family": "orders",
+ "hard": "recur",
+ "seed": 2004,
+ "max_turns": 8,
+ "bugs_applied": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  8
+ ],
+ "matched": false,
+ "cliraw": true,
+ "worker": "claude-min",
+ "worker_model": "claude-haiku-4-5-20251001",
+ "total_tests": 40,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 15,
+   "passed": 25,
+   "sha": "ff25acd",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 11,
+   "passed": 29,
+   "sha": "0ffb934",
+   "cost_usd": 0.023944,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 13.2,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 4,
+   "passed": 36,
+   "sha": "af33024",
+   "cost_usd": 0.027879,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 17.9,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 3,
+   "passed": 37,
+   "sha": "cc35122",
+   "cost_usd": 0.030637,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 22.0,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 0,
+   "passed": 40,
+   "sha": "29c0930",
+   "cost_usd": 0.033202,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 25.0,
+   "ok": true
+  }
+ ],
+ "errors": [
+  15,
+  11,
+  4,
+  3,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "CONVERGING",
+  "CONVERGING",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 4,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "29c0930",
+  "iterations_used": 5,
+  "savings_vs_fixed_cap": 5
+ },
+ "cost_usd": 0.1157,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

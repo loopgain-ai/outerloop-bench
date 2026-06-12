@@ -1,0 +1,135 @@
+{
+ "id": "regression-07-orders",
+ "cell": "regression",
+ "family": "orders",
+ "hard": null,
+ "seed": 3007,
+ "max_turns": 6,
+ "bugs_applied": [
+  0,
+  1,
+  2,
+  3,
+  5,
+  6,
+  7,
+  8
+ ],
+ "total_tests": 27,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 10,
+   "passed": 17,
+   "sha": "b069c69",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 10,
+   "passed": 17,
+   "sha": "e3dfbf1",
+   "cost_usd": 0.0553328,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 25.4,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 10,
+   "passed": 17,
+   "sha": "c9ad467",
+   "cost_usd": 0.0538358,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 20.4,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 10,
+   "passed": 17,
+   "sha": "fb6f6b6",
+   "cost_usd": 0.055187,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 29.1,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 9,
+   "passed": 18,
+   "sha": "7107c5b",
+   "cost_usd": 0.05560935,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 25.9,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 9,
+   "passed": 18,
+   "sha": "91c7cb9",
+   "cost_usd": 0.053533199999999996,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 20.3,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 9,
+   "passed": 18,
+   "sha": "e8c4108",
+   "cost_usd": 0.05444045,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 19.1,
+   "ok": true
+  },
+  {
+   "iter": 7,
+   "error": 0,
+   "passed": 27,
+   "sha": "45744c0",
+   "cost_usd": 0.07123934999999999,
+   "turns": 7,
+   "subtype": "error_max_turns",
+   "wall_s": 37.6,
+   "ok": true
+  }
+ ],
+ "errors": [
+  10,
+  10,
+  10,
+  10,
+  9,
+  9,
+  9,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "stalled",
+  "best_error": 10.0,
+  "best_output": "b069c69",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.3992,
+ "cost_after_stop_usd": 0.29,
+ "telemetry_sent": true
+}

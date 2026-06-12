@@ -1,0 +1,58 @@
+{
+ "id": "plateau-03-textstats+calcexpr",
+ "cell": "plateau",
+ "family": "textstats",
+ "hard": "calcexpr",
+ "seed": 2003,
+ "max_turns": 8,
+ "bugs_applied": [
+  2,
+  3,
+  4,
+  8
+ ],
+ "total_tests": 51,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 12,
+   "passed": 39,
+   "sha": "7e0facc",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 0,
+   "passed": 51,
+   "sha": "fe2f4fc",
+   "cost_usd": 0.0886128,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 47.2,
+   "ok": true
+  }
+ ],
+ "errors": [
+  12,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 1,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "fe2f4fc",
+  "iterations_used": 2,
+  "savings_vs_fixed_cap": 8
+ },
+ "cost_usd": 0.0886,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

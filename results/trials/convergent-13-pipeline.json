@@ -1,0 +1,102 @@
+{
+ "id": "convergent-13-pipeline",
+ "cell": "convergent",
+ "family": "pipeline",
+ "hard": null,
+ "seed": 1013,
+ "max_turns": 10,
+ "bugs_applied": [
+  0,
+  2,
+  3,
+  4,
+  6,
+  7,
+  8,
+  9,
+  12
+ ],
+ "total_tests": 49,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 21,
+   "passed": 28,
+   "sha": "43238ad",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 18,
+   "passed": 31,
+   "sha": "52fd87f",
+   "cost_usd": 0.08421329999999999,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 40.0,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 20,
+   "passed": 29,
+   "sha": "cf7c31e",
+   "cost_usd": 0.0871064,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 46.8,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 7,
+   "passed": 42,
+   "sha": "327a0be",
+   "cost_usd": 0.09578835000000002,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 46.5,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 0,
+   "passed": 49,
+   "sha": "f90a4d3",
+   "cost_usd": 0.08695215,
+   "turns": 11,
+   "subtype": "error_max_turns",
+   "wall_s": 41.0,
+   "ok": true
+  }
+ ],
+ "errors": [
+  21,
+  18,
+  20,
+  7,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "STALLING",
+  "CONVERGING",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 4,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "f90a4d3",
+  "iterations_used": 5,
+  "savings_vs_fixed_cap": 5
+ },
+ "cost_usd": 0.3541,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

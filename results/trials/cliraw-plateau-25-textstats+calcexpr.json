@@ -1,0 +1,77 @@
+{
+ "id": "cliraw-plateau-25-textstats+calcexpr",
+ "cell": "plateau",
+ "family": "textstats",
+ "hard": "calcexpr",
+ "seed": 2025,
+ "max_turns": 8,
+ "bugs_applied": [
+  0,
+  1,
+  2,
+  4,
+  7,
+  8
+ ],
+ "matched": false,
+ "cliraw": true,
+ "worker": "claude-min",
+ "worker_model": "claude-haiku-4-5-20251001",
+ "total_tests": 51,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 16,
+   "passed": 35,
+   "sha": "08b7c36",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 10,
+   "passed": 41,
+   "sha": "d469bad",
+   "cost_usd": 0.028786,
+   "turns": 8,
+   "subtype": "error_max_turns",
+   "wall_s": 18.9,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 0,
+   "passed": 51,
+   "sha": "d6d623e",
+   "cost_usd": 0.026474,
+   "turns": 7,
+   "subtype": "success",
+   "wall_s": 15.3,
+   "ok": true
+  }
+ ],
+ "errors": [
+  16,
+  10,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "d6d623e",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.0553,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": true
+}

@@ -1,0 +1,76 @@
+{
+ "id": "gptm-regression-05-orders",
+ "cell": "regression",
+ "family": "orders",
+ "hard": null,
+ "seed": 3005,
+ "max_turns": 6,
+ "bugs_applied": [
+  0,
+  1,
+  3,
+  5,
+  6,
+  7
+ ],
+ "matched": true,
+ "worker": "openai",
+ "worker_model": "gpt-5-mini",
+ "total_tests": 27,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 7,
+   "passed": 20,
+   "sha": "b90d068",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 4,
+   "passed": 23,
+   "sha": "8721353",
+   "cost_usd": 0.003607,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 17.6,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 0,
+   "passed": 27,
+   "sha": "84d3d05",
+   "cost_usd": 0.003193,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 16.0,
+   "ok": true
+  }
+ ],
+ "errors": [
+  7,
+  4,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "84d3d05",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.0068,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": null
+}

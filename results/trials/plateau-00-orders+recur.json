@@ -1,0 +1,144 @@
+{
+ "id": "plateau-00-orders+recur",
+ "cell": "plateau",
+ "family": "orders",
+ "hard": "recur",
+ "seed": 2000,
+ "max_turns": 8,
+ "bugs_applied": [
+  0,
+  1,
+  2,
+  6,
+  7
+ ],
+ "total_tests": 40,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 13,
+   "passed": 27,
+   "sha": "deed2e2",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 13,
+   "passed": 27,
+   "sha": "7dd9c58",
+   "cost_usd": 0.08350894999999998,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 25.4,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 12,
+   "passed": 28,
+   "sha": "c1b0892",
+   "cost_usd": 0.08042350000000001,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 41.0,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 12,
+   "passed": 28,
+   "sha": "39c2a5a",
+   "cost_usd": 0.0678906,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 31.2,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 11,
+   "passed": 29,
+   "sha": "8e5a6b2",
+   "cost_usd": 0.07340395,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 31.2,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 11,
+   "passed": 29,
+   "sha": "b7ec351",
+   "cost_usd": 0.06714655,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 25.8,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 11,
+   "passed": 29,
+   "sha": "2d0ba5b",
+   "cost_usd": 0.0698189,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 29.2,
+   "ok": true
+  },
+  {
+   "iter": 7,
+   "error": 4,
+   "passed": 36,
+   "sha": "c0c4a7e",
+   "cost_usd": 0.08802975,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 50.6,
+   "ok": true
+  },
+  {
+   "iter": 8,
+   "error": 0,
+   "passed": 40,
+   "sha": "20008de",
+   "cost_usd": 0.0888146,
+   "turns": 9,
+   "subtype": "error_max_turns",
+   "wall_s": 72.5,
+   "ok": true
+  }
+ ],
+ "errors": [
+  13,
+  13,
+  12,
+  12,
+  11,
+  11,
+  11,
+  4,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "stalled",
+  "best_error": 12.0,
+  "best_output": "c1b0892",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.619,
+ "cost_after_stop_usd": 0.4551,
+ "telemetry_sent": true
+}

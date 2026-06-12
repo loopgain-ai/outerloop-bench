@@ -1,0 +1,79 @@
+{
+ "id": "cmin-regression-03-orders",
+ "cell": "regression",
+ "family": "orders",
+ "hard": null,
+ "seed": 3003,
+ "max_turns": 6,
+ "bugs_applied": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "matched": true,
+ "worker": "claude-min",
+ "worker_model": "claude-haiku-4-5-20251001",
+ "total_tests": 27,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 12,
+   "passed": 15,
+   "sha": "262135b",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 12,
+   "passed": 15,
+   "sha": "553f15e",
+   "cost_usd": 0.014511,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 5.9,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 0,
+   "passed": 27,
+   "sha": "dc2c419",
+   "cost_usd": 0.023735,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 15.1,
+   "ok": true
+  }
+ ],
+ "errors": [
+  12,
+  12,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "STALLING",
+  "TARGET_MET"
+ ],
+ "replay": {
+  "stop_after": 2,
+  "outcome": "converged",
+  "best_error": 0.0,
+  "best_output": "dc2c419",
+  "iterations_used": 3,
+  "savings_vs_fixed_cap": 7
+ },
+ "cost_usd": 0.0382,
+ "cost_after_stop_usd": 0,
+ "telemetry_sent": null
+}

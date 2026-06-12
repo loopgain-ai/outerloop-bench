@@ -1,0 +1,60 @@
+{
+  "date": "2026-06-11",
+  "smoke": true,
+  "n_trials": 3,
+  "aborted": [],
+  "total_cost_usd": 0.37,
+  "cells": {
+    "convergent": {
+      "n": 1,
+      "outcomes": {
+        "converged": 1
+      },
+      "coherence_violations": 0,
+      "false_stops": [],
+      "stall_catches": 0,
+      "sessions_saved_on_stalls": 0,
+      "converged_clean": 1,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 0.03,
+      "cost_after_stop_usd": 0,
+      "telemetry_ok": 0
+    },
+    "plateau": {
+      "n": 1,
+      "outcomes": {
+        "stalled": 1
+      },
+      "coherence_violations": 0,
+      "false_stops": [
+        {
+          "id": "cliraw-plateau-00-orders+recur",
+          "stop_err": 10,
+          "later_best": 0
+        }
+      ],
+      "stall_catches": 1,
+      "sessions_saved_on_stalls": 8,
+      "converged_clean": 0,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 0.26,
+      "cost_after_stop_usd": 0.22,
+      "telemetry_ok": 0
+    },
+    "regression": {
+      "n": 1,
+      "outcomes": {
+        "converged": 1
+      },
+      "coherence_violations": 0,
+      "false_stops": [],
+      "stall_catches": 0,
+      "sessions_saved_on_stalls": 0,
+      "converged_clean": 1,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 0.07,
+      "cost_after_stop_usd": 0,
+      "telemetry_ok": 0
+    }
+  }
+}

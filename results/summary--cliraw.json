@@ -1,0 +1,128 @@
+{
+  "date": "2026-06-11",
+  "smoke": false,
+  "n_trials": 90,
+  "aborted": [],
+  "total_cost_usd": 6.5,
+  "cells": {
+    "convergent": {
+      "n": 30,
+      "outcomes": {
+        "converged": 30
+      },
+      "coherence_violations": 0,
+      "false_stops": [],
+      "stall_catches": 0,
+      "sessions_saved_on_stalls": 0,
+      "converged_clean": 30,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 1.13,
+      "cost_after_stop_usd": 0,
+      "telemetry_ok": 26
+    },
+    "plateau": {
+      "n": 30,
+      "outcomes": {
+        "stalled": 1,
+        "converged": 29
+      },
+      "coherence_violations": 0,
+      "false_stops": [
+        {
+          "id": "cliraw-plateau-22-orders+recur",
+          "stop_err": 16,
+          "later_best": 0
+        }
+      ],
+      "stall_catches": 1,
+      "sessions_saved_on_stalls": 8,
+      "converged_clean": 29,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 2.73,
+      "cost_after_stop_usd": 0.12,
+      "telemetry_ok": 30
+    },
+    "regression": {
+      "n": 30,
+      "outcomes": {
+        "stalled": 14,
+        "converged": 16
+      },
+      "coherence_violations": 0,
+      "false_stops": [
+        {
+          "id": "cliraw-regression-00-pipeline",
+          "stop_err": 5,
+          "later_best": 0
+        },
+        {
+          "id": "cliraw-regression-02-pipeline",
+          "stop_err": 14,
+          "later_best": 2
+        },
+        {
+          "id": "cliraw-regression-04-pipeline",
+          "stop_err": 20,
+          "later_best": 0
+        },
+        {
+          "id": "cliraw-regression-05-orders",
+          "stop_err": 4,
+          "later_best": 0
+        },
+        {
+          "id": "cliraw-regression-08-pipeline",
+          "stop_err": 17,
+          "later_best": 0
+        },
+        {
+          "id": "cliraw-regression-12-pipeline",
+          "stop_err": 19,
+          "later_best": 1
+        },
+        {
+          "id": "cliraw-regression-14-pipeline",
+          "stop_err": 7,
+          "later_best": 0
+        },
+        {
+          "id": "cliraw-regression-15-orders",
+          "stop_err": 6,
+          "later_best": 0
+        },
+        {
+          "id": "cliraw-regression-16-pipeline",
+          "stop_err": 19,
+          "later_best": 1
+        },
+        {
+          "id": "cliraw-regression-20-pipeline",
+          "stop_err": 20,
+          "later_best": 0
+        },
+        {
+          "id": "cliraw-regression-22-pipeline",
+          "stop_err": 3,
+          "later_best": 2
+        },
+        {
+          "id": "cliraw-regression-26-pipeline",
+          "stop_err": 13,
+          "later_best": 0
+        },
+        {
+          "id": "cliraw-regression-28-pipeline",
+          "stop_err": 10,
+          "later_best": 0
+        }
+      ],
+      "stall_catches": 14,
+      "sessions_saved_on_stalls": 103,
+      "converged_clean": 16,
+      "ended_worse_than_best": 0,
+      "total_cost_usd": 2.64,
+      "cost_after_stop_usd": 1.15,
+      "telemetry_ok": 30
+    }
+  }
+}

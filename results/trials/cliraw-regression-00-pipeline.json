@@ -1,0 +1,153 @@
+{
+ "id": "cliraw-regression-00-pipeline",
+ "cell": "regression",
+ "family": "pipeline",
+ "hard": null,
+ "seed": 3000,
+ "max_turns": 6,
+ "bugs_applied": [
+  1,
+  2,
+  4,
+  7,
+  8,
+  10,
+  12
+ ],
+ "matched": false,
+ "cliraw": true,
+ "worker": "claude-min",
+ "worker_model": "claude-haiku-4-5-20251001",
+ "total_tests": 49,
+ "cap": 10,
+ "aborted": null,
+ "iterations": [
+  {
+   "iter": 0,
+   "error": 13,
+   "passed": 36,
+   "sha": "f8b7579",
+   "cost_usd": 0.0,
+   "turns": 0,
+   "wall_s": 0.0
+  },
+  {
+   "iter": 1,
+   "error": 5,
+   "passed": 44,
+   "sha": "b26c6f3",
+   "cost_usd": 0.023599,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 15.7,
+   "ok": true
+  },
+  {
+   "iter": 2,
+   "error": 5,
+   "passed": 44,
+   "sha": "42c51a3",
+   "cost_usd": 0.01383,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 9.4,
+   "ok": true
+  },
+  {
+   "iter": 3,
+   "error": 5,
+   "passed": 44,
+   "sha": "f9d0623",
+   "cost_usd": 0.014275,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 6.5,
+   "ok": true
+  },
+  {
+   "iter": 4,
+   "error": 5,
+   "passed": 44,
+   "sha": "c7a186d",
+   "cost_usd": 0.016206,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 5.8,
+   "ok": true
+  },
+  {
+   "iter": 5,
+   "error": 5,
+   "passed": 44,
+   "sha": "b7cd899",
+   "cost_usd": 0.014021,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 6.1,
+   "ok": true
+  },
+  {
+   "iter": 6,
+   "error": 1,
+   "passed": 48,
+   "sha": "91f6bab",
+   "cost_usd": 0.02561,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 18.7,
+   "ok": true
+  },
+  {
+   "iter": 7,
+   "error": 1,
+   "passed": 48,
+   "sha": "81b9c7a",
+   "cost_usd": 0.009119,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 6.5,
+   "ok": true
+  },
+  {
+   "iter": 8,
+   "error": 0,
+   "passed": 49,
+   "sha": "d85af86",
+   "cost_usd": 0.014745,
+   "turns": 6,
+   "subtype": "error_max_turns",
+   "wall_s": 10.9,
+   "ok": true
+  }
+ ],
+ "errors": [
+  13,
+  5,
+  5,
+  5,
+  5,
+  5,
+  1,
+  1,
+  0
+ ],
+ "bands": [
+  "FAST_CONVERGE",
+  "CONVERGING",
+  "CONVERGING",
+  "CONVERGING",
+  "STALLING",
+  "STALLING"
+ ],
+ "replay": {
+  "stop_after": 5,
+  "outcome": "stalled",
+  "best_error": 5.0,
+  "best_output": "b26c6f3",
+  "iterations_used": 6,
+  "savings_vs_fixed_cap": 4
+ },
+ "cost_usd": 0.1314,
+ "cost_after_stop_usd": 0.0495,
+ "telemetry_sent": true
+}
