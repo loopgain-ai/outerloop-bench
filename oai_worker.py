@@ -17,11 +17,13 @@ import argparse
 import json
 import os
 import pathlib
-import subprocess
 import sys
 import time
 import urllib.error
 import urllib.request
+
+from sandbox import (TaskSandbox, SandboxUnavailable, run_tool, check_cancelled,
+                     install_signal_handlers)
 
 # API key: read OPENAI_API_KEY from the environment, or from a local .env file
 # (override the path with LOOPGAIN_BENCH_ENV). No key is ever committed.
@@ -62,6 +64,7 @@ def api_key():
 def call_api(key, payload):
     body = json.dumps(payload).encode()
     for attempt in range(4):
+        check_cancelled()
         req = urllib.request.Request(
             "https://api.openai.com/v1/chat/completions", data=body,
             headers={"Authorization": "Bearer " + key,
@@ -77,34 +80,20 @@ def call_api(key, payload):
     raise RuntimeError("unreachable")
 
 
-def run_tool(name, args, cwd):
-    if name == "bash":
-        try:
-            p = subprocess.run(["/bin/sh", "-c", args["command"]], cwd=cwd,
-                               capture_output=True, text=True, timeout=90)
-            out = (p.stdout + p.stderr).strip()
-        except subprocess.TimeoutExpired:
-            out = "(command timed out after 90s)"
-        return out[-6000:] if out else "(no output)"
-    if name == "write_file":
-        target = (pathlib.Path(cwd) / args["path"]).resolve()
-        if pathlib.Path(cwd).resolve() not in target.parents and target != pathlib.Path(cwd).resolve():
-            return "refused: path escapes the repo directory"
-        target.write_text(args["content"])
-        return f"wrote {args['path']} ({len(args['content'])} chars)"
-    return f"unknown tool {name}"
-
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="gpt-5-mini")
     ap.add_argument("--max-turns", type=int, default=10)
     ap.add_argument("--prompt", required=True)
+    ap.add_argument("--task-files", nargs="+", required=True)
+    ap.add_argument("--editable-files", nargs="+", required=True)
     args = ap.parse_args()
+    install_signal_handlers()
+    task = TaskSandbox(pathlib.Path.cwd(), args.task_files, args.editable_files)
     key = api_key()
     p_in, p_cached, p_out = PRICES[args.model]
 
-    cwd = pathlib.Path.cwd()
     messages = [
         {"role": "system",
          "content": "You are an automated coding agent working in a git repo. "
@@ -120,6 +109,8 @@ def main():
         if turns >= args.max_turns:
             subtype = "error_max_turns"
             break
+        task.preflight()
+        check_cancelled()
         resp = call_api(key, {"model": args.model, "messages": messages,
                               "tools": TOOLS, "parallel_tool_calls": True})
         turns += 1
@@ -140,14 +131,19 @@ def main():
             except json.JSONDecodeError:
                 result = "tool arguments were not valid JSON"
             else:
-                result = run_tool(tc["function"]["name"], targs, cwd)
+                result = run_tool(tc["function"]["name"], targs, task)
             messages.append({"role": "tool", "tool_call_id": tc["id"],
                              "content": result})
 
+    task.export()
     print(json.dumps({"total_cost_usd": round(cost, 6), "num_turns": turns,
                       "subtype": subtype, "is_error": False,
                       "result": final_text[:500]}))
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except SandboxUnavailable:
+        print("Sandbox unavailable; aborting worker", file=sys.stderr)
+        sys.exit(78)
