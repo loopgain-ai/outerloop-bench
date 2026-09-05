@@ -26,6 +26,10 @@ import subprocess
 import sys
 import threading
 import time
+import tempfile
+import uuid
+
+from sandbox import TaskSandbox, SandboxUnavailable, ensure_available, cleanup_session, set_cancel_event
 
 from loopgain import LoopGain
 
@@ -73,6 +77,42 @@ Work within your turn budget; partial progress is fine. When you run out of obvi
 _cost_lock = threading.Lock()
 _total_cost = 0.0
 _print_lock = threading.Lock()
+_abort = threading.Event()
+set_cancel_event(_abort)
+_active_lock = threading.Lock()
+_active_workers = set()
+_abort_path = None
+
+
+def abort_run():
+    _abort.set()
+    if _abort_path:
+        pathlib.Path(_abort_path).touch()
+    with _active_lock:
+        for proc in _active_workers:
+            if proc.poll() is None:
+                proc.terminate()
+
+
+def require_running():
+    if _abort.is_set():
+        raise SandboxUnavailable("Run cancelled after infrastructure failure")
+
+
+def require_supported_worker(worker):
+    if worker not in {"claude-min", "openai"}:
+        raise SandboxUnavailable("Native Claude tools are not isolated; select --worker claude-min or openai")
+
+
+def task_manifest(trial):
+    family = FAMILIES[trial["family"]]
+    editable = list(family["files"])
+    tests = [family["test"]]
+    if trial["hard"]:
+        hard = HARD_MODULES[trial["hard"]]
+        editable += hard["files"]
+        tests.append(hard["test"])
+    return editable + tests + ["run_tests.sh"], editable
 
 
 def log(msg):
@@ -120,7 +160,7 @@ def materialize(trial):
             shutil.copy(HARD / f, d / f)
 
     (d / "run_tests.sh").write_text(
-        "#!/bin/sh\nexec %s -m pytest --tb=short -q \"$@\"\n" % VENV_PY)
+        '#!/bin/sh\nexec python3 -m pytest --tb=short -q "$@"\n')
     (d / "run_tests.sh").chmod(0o755)
     for cmd in (["git", "init", "-q"], ["git", "add", "-A"],
                 ["git", "commit", "-qm", "baseline"]):
@@ -128,11 +168,10 @@ def materialize(trial):
     return d
 
 
-def evaluate(d, total_tests):
-    # NB: spec files are restored by restore_specs() BEFORE this runs; the
-    # worker's source edits must survive evaluation.
-    p = subprocess.run(["./run_tests.sh", "--tb=no"], cwd=d, capture_output=True, text=True, timeout=180)
-    out = p.stdout + p.stderr
+def evaluate(d, total_tests, names):
+    require_running()
+    task = TaskSandbox(d, names, [])
+    _status, out = task.operate("grade", timeout=180)
     m_fail = re.search(r"(\d+) failed", out)
     m_pass = re.search(r"(\d+) passed", out)
     m_err = re.search(r"(\d+) error", out)
@@ -149,39 +188,61 @@ def restore_specs(d, test_files):
                    cwd=d, check=False, capture_output=True)
 
 
-def run_worker(d, max_turns, worker="claude"):
-    if worker == "openai":
-        cmd = [VENV_PY, str(ROOT / "oai_worker.py"), "--model", OAI_MODEL,
-               "--max-turns", str(max_turns), "--prompt", WORKER_PROMPT]
-    elif worker == "claude-min":
-        cmd = [VENV_PY, str(ROOT / "claude_min_worker.py"), "--model", MODEL,
-               "--max-turns", str(max_turns), "--prompt", WORKER_PROMPT]
-    else:
-        cmd = ["claude", "--model", MODEL, "-p", WORKER_PROMPT,
-               "--max-turns", str(max_turns),
-               "--allowedTools", "Bash,Read,Edit,Write,Grep,Glob",
-               "--output-format", "json"]
-    for attempt in (1, 2):
-        t0 = time.time()
+def run_worker(d, max_turns, worker="claude", names=None, editable=None):
+    require_supported_worker(worker)
+    require_running()
+    ensure_available()
+    if not names or not editable:
+        raise SandboxUnavailable("Explicit task manifest required")
+    script, model = ("oai_worker.py", OAI_MODEL) if worker == "openai" else ("claude_min_worker.py", MODEL)
+    cmd = [VENV_PY, str(ROOT / script), "--model", model,
+           "--max-turns", str(max_turns), "--prompt", WORKER_PROMPT,
+           "--task-files", *names, "--editable-files", *editable]
+    session = uuid.uuid4().hex
+    env = dict(os.environ, OUTERLOOP_SANDBOX_SESSION=session)
+    if _abort_path:
+        env["OUTERLOOP_ABORT_FILE"] = str(_abort_path)
+    proc = None
+    t0 = time.time()
+    try:
+        with _active_lock:
+            require_running()
+            proc = subprocess.Popen(cmd, cwd=d, stdout=subprocess.PIPE,
+                                    stderr=subprocess.PIPE, text=True, env=env)
+            _active_workers.add(proc)
+        stdout, _stderr = proc.communicate(timeout=1200)
+        require_running()
+        if proc.returncode:
+            raise SandboxUnavailable("Worker failed; no automatic retry")
+        result = json.loads(stdout)
+        if result.get("total_cost_usd", 0) == 0 and (result.get("num_turns") or 0) <= 1:
+            return {"cost_usd": 0.0, "turns": result.get("num_turns"),
+                    "wall_s": round(time.time() - t0, 1), "ok": False,
+                    "error": "dead worker (0-cost, <=1 turn)"}
+        return {"cost_usd": result.get("total_cost_usd", 0.0),
+                "turns": result.get("num_turns"), "subtype": result.get("subtype"),
+                "wall_s": round(time.time() - t0, 1), "ok": True}
+    except (OSError, ValueError, subprocess.SubprocessError, SandboxUnavailable) as exc:
+        abort_run()
+        raise SandboxUnavailable("Worker infrastructure failed; run aborted") from exc
+    finally:
+        if proc is not None:
+            if proc.poll() is None:
+                proc.terminate()
+                try:
+                    proc.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    proc.kill()
+                    proc.wait(timeout=5)
+            with _active_lock:
+                _active_workers.discard(proc)
+            proc.stdout.close()
+            proc.stderr.close()
         try:
-            p = subprocess.run(cmd, cwd=d, capture_output=True, text=True, timeout=1200)
-            j = json.loads(p.stdout)
-            dead = (j.get("total_cost_usd", 0) == 0 and (j.get("num_turns") or 0) <= 1)
-            if dead:
-                # 0-cost 1-turn session = the worker never actually ran (e.g. a
-                # billing/limit blip). Never record it as a real iteration.
-                if attempt == 1:
-                    time.sleep(60)
-                    continue
-                return {"cost_usd": 0.0, "turns": j.get("num_turns"), "wall_s": round(time.time() - t0, 1),
-                        "ok": False, "error": "dead worker (0-cost, <=1 turn): " + (j.get("result") or "")[:200]}
-            return {"cost_usd": j.get("total_cost_usd", 0.0), "turns": j.get("num_turns"),
-                    "subtype": j.get("subtype"), "wall_s": round(time.time() - t0, 1), "ok": True}
-        except Exception as e:
-            if attempt == 2:
-                return {"cost_usd": 0.0, "turns": None, "wall_s": round(time.time() - t0, 1),
-                        "ok": False, "error": str(e)[:200]}
-            time.sleep(15)
+            cleanup_session(session)
+        except SandboxUnavailable:
+            abort_run()
+            raise
 
 
 def commit(d, i):
@@ -193,16 +254,21 @@ def commit(d, i):
 
 
 def run_trial(trial, stagger_s):
-    time.sleep(stagger_s)
+    require_supported_worker(trial.get("worker", "claude"))
+    if _abort.wait(stagger_s):
+        require_running()
+    require_running()
     if _total_cost > COST_ABORT_USD:
         log(f"SKIP {trial['id']}: cost guard tripped (${_total_cost:.2f})")
         return None
+    sandbox_image = ensure_available()
+    names, editable = task_manifest(trial)
     d = materialize(trial)
     fam = FAMILIES[trial["family"]]
     test_files = [fam["test"]] + ([HARD_MODULES[trial["hard"]]["test"]] if trial["hard"] else [])
 
     iters = []
-    failed, passed = evaluate(d, None)
+    failed, passed = evaluate(d, None, names)
     total_tests = failed + passed
     sha = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=d,
                          capture_output=True, text=True).stdout.strip()
@@ -213,12 +279,12 @@ def run_trial(trial, stagger_s):
     for i in range(1, CAP + 1):
         if failed == 0:
             break
-        w = run_worker(d, trial["max_turns"], trial.get("worker", "claude"))
+        w = run_worker(d, trial["max_turns"], trial.get("worker", "claude"), names, editable)
         if not w["ok"]:
             aborted = w.get("error", "worker failed")
             break
         restore_specs(d, test_files)
-        failed, passed = evaluate(d, total_tests)
+        failed, passed = evaluate(d, total_tests, names)
         sha = commit(d, i)
         iters.append({"iter": i, "error": failed, "passed": passed, "sha": sha, **w})
         add_cost(w["cost_usd"])
@@ -251,6 +317,7 @@ def run_trial(trial, stagger_s):
         "cliraw": trial.get("cliraw", False),
         "worker": trial.get("worker", "claude"),
         "worker_model": OAI_MODEL if trial.get("worker") == "openai" else MODEL,
+        "sandbox_image": sandbox_image,
         "total_tests": total_tests, "cap": CAP, "aborted": aborted,
         "iterations": iters, "errors": errs, "bands": states,
         "replay": {"stop_after": stop_after, "outcome": str(res.outcome),
@@ -347,6 +414,45 @@ def analyze(recs):
     return out
 
 
+def run_trials(trials, parallel):
+    """Bound scheduling and stop active workers when any sandbox fails."""
+    from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
+    global _abort_path
+    if parallel < 1:
+        raise ValueError("parallel must be positive")
+    recs = []
+    iterator = iter(trials)
+    with tempfile.TemporaryDirectory(prefix="outerloop-control-") as control:
+        _abort_path = pathlib.Path(control) / "abort"
+        with ThreadPoolExecutor(max_workers=parallel) as executor:
+            pending = set()
+            def submit_one():
+                require_running()
+                try:
+                    trial = next(iterator)
+                except StopIteration:
+                    return
+                pending.add(executor.submit(run_trial, trial, 0))
+            try:
+                for _ in range(parallel):
+                    submit_one()
+                while pending:
+                    done, pending = wait(pending, return_when=FIRST_COMPLETED)
+                    # Resolve all completions before scheduling more work.
+                    for future in done:
+                        recs.append(future.result())
+                    for _ in done:
+                        submit_one()
+            except BaseException:
+                abort_run()
+                for future in pending:
+                    future.cancel()
+                raise
+            finally:
+                _abort_path = None
+    return recs
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--smoke", action="store_true")
@@ -365,6 +471,8 @@ def main():
     if not TOKEN:
         log("WARN: LOOPGAIN_TELEMETRY_TOKEN not set — dashboard posting disabled")
     worker = "claude-min" if args.cliraw else args.worker
+    require_supported_worker(worker)
+    ensure_available()
     trials = build_matrix(args.smoke, worker, args.n, args.matched, cliraw=args.cliraw)
     if args.cells:
         keep = set(args.cells.split(","))
@@ -374,16 +482,7 @@ def main():
     log(f"matrix: {len(trials)} trials, parallel={args.parallel}, cap={CAP}, "
         f"cost guard ${COST_ABORT_USD:.0f}")
 
-    from concurrent.futures import ThreadPoolExecutor
-    recs = []
-    with ThreadPoolExecutor(max_workers=args.parallel) as ex:
-        futs = [ex.submit(run_trial, t, (i % args.parallel) * 3) for i, t in enumerate(trials)]
-        for f in futs:
-            try:
-                recs.append(f.result())
-            except Exception as e:
-                log(f"TRIAL ERROR: {e}")
-                recs.append(None)
+    recs = run_trials(trials, args.parallel)
 
     summary = {
         "date": "2026-06-11",

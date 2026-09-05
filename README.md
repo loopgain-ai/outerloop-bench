@@ -126,6 +126,51 @@ matched cells cost $1.26 (Haiku) vs $0.32 (gpt-5-mini) for identical work. See
 | *(no prefix)* | 89 `claude -p` CLI loops | the superseded first run — kept as the cautionary contrast, never a headline |
 | `gpt-` | 18 early unmatched gpt loops | retained for provenance; not used in any reported result |
 
+## Mandatory containment for new runs
+
+Generated shell commands and candidate grading now require a trusted, locally
+prepared Docker image containing Python, a POSIX shell, and pytest. The default
+is `loopgain-python-pytest:local`; select an already installed trusted image with
+`OUTERLOOP_SANDBOX_IMAGE`. Runtime execution never pulls, builds, or installs.
+Preflight runs before reading worker credentials and before each model turn.
+Native `claude` CLI mode (including the historical default) fails closed; select
+`--worker claude-min`, `--worker openai`, or the existing `--cliraw` explicitly.
+These remain different drivers, with their existing cohort labels.
+
+Only declared task files enter a disposable nonroot, networkless container.
+There is no writable host mount. Task state is bounded text reconstructed on a
+16 MiB noexec tmpfs for each tool call. `./run_tests.sh` points to a trusted
+read-only runner outside that tmpfs; grading invokes pytest directly. Host keys,
+`.env`, Git metadata/config/hooks, home, and Docker socket are excluded. Only
+existing declared implementation files are exported back as regular text files;
+tests and runner remain under harness control. New helpers, renamed files,
+symlinks, binaries, and scratch files do not persist. Direct worker invocations
+must provide `--task-files` and `--editable-files` manifests. This is a fixed-file
+benchmark tool, not a general-purpose repository agent.
+
+Containers use read-only root/input, no capabilities, no-new-privileges, 128 MiB
+memory without extra swap, one CPU, 32 PIDs, and bounded CPU, descriptors,
+source, output and wall time. Source is limited to 1 MiB; command output to
+64 KiB; JSON envelopes to 2 MiB. Tool and grading deadlines are 90 and 180 seconds.
+Every operation forcibly removes its container and descendants. Infrastructure,
+unsafe export, timeout, or cleanup failure aborts further turns; failed workers
+are not automatically retried. The harness cancels active siblings and unscheduled
+trials and owns cleanup even when a worker dies. Standalone SIGKILL or host loss
+cannot run cleanup: inspect/remove `outerloop.session`-labelled containers before
+resuming. Container isolation depends on patched Docker, its host kernel and a
+trusted image; it is not a separate VM boundary.
+
+Only synthetic checks are authorized by this remediation:
+
+```sh
+OUTERLOOP_SANDBOX_INTEGRATION=1 python -m pytest tests/test_sandbox.py -q
+```
+
+These tests use cached images and mocked providers, never benchmark runs. No
+historical results are recomputed. Before a new study, record the image ID and
+review the changed runtime/protocol; do not combine sandboxed runs with historical
+host runs as equivalent measurements. New trial records include `sandbox_image`.
+
 ## Reproduce
 
 The `loopgain` library is pure-Python with zero runtime dependencies.
@@ -143,7 +188,7 @@ python3 sweep_kill_rule.py           # the K = 2..5 stall-count sweep
 
 # re-run the loops from scratch (spends real API dollars):
 python3 validate_families.py         # pre-flight: prove the bug catalogs
-python3 run_fulltest.py --parallel 5
+python3 run_fulltest.py --worker claude-min --parallel 5
 ```
 
 Set `LOOPGAIN_PY` to point pytest and the worker subprocesses at a specific
